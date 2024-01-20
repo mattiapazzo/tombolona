@@ -28,7 +28,7 @@ function tombola(){
     let num = 0;
     while(true){
         num = Math.floor(Math.random()*100 + 1);
-        if(!numeri.includes(num))break;
+        if(!numeri.includes(num) && numeri.length < 100)break;
     }
     
     let div1 = document.getElementById('div1');
