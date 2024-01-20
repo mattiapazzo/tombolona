@@ -1,5 +1,6 @@
 let righe = 10;
 let colonne = 10;
+let numeri = [];
 
 function DisegnaTabella() {
 
@@ -14,12 +15,28 @@ function DisegnaTabella() {
             let cellText = document.createTextNode(i);
             cell.appendChild(cellText);
             row.appendChild(cell);
+            if(numeri.includes(i)) cell.style.backgroundColor = 'cyan';
         }
         tabella.appendChild(row);
     }
 
     div1.appendChild(tabella);
 
+}
+
+function tombola(){
+    let num = 0;
+    while(true){
+        num = Math.floor(Math.random()*100 + 1);
+        if(!numeri.includes(num))break;
+    }
+    
+    let div1 = document.getElementById('div1');
+    while(div1.firstChild){
+        div1.removeChild(div1.firstChild);
+    }
+    numeri.push(num);
+    DisegnaTabella();
 }
 
 DisegnaTabella();
